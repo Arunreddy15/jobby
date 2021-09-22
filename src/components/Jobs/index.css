@@ -1,0 +1,42 @@
+.jobs-container {
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  height: 90vh;
+}
+.container-data {
+  width: 90%;
+
+  margin-top: 30px;
+  display: flex;
+}
+.left-section {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+}
+.right-section {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+}
+.search-container {
+  display: flex;
+  align-items: center;
+}
+.search-icon {
+  margin-left: 10px;
+  color: white;
+}
+.search-box {
+  border: 1px solid #b6c5ff;
+  background-color: transparent;
+  border-radius: 8px;
+  height: 35px;
+  padding-left: 10px;
+  font-family: 'Roboto';
+  width: 400px;
+  color: white;
+  outline: none;
+  font-size: 16px;
+}
