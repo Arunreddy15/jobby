@@ -1,17 +1,16 @@
-.jobs-container {
-  background-color: black;
-  display: flex;
-  justify-content: center;
-}
-
 @media screen and (max-width: 552px) {
+  .jobs-container {
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    overflow: scroll-y;
+  }
   .container-data {
     width: 90%;
     margin-top: 30px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    overflow-y: scroll;
   }
   .right-section {
     order: 1;
@@ -39,6 +38,7 @@
   .search-container-mobile {
     display: flex;
     align-items: center;
+    margin-bottom: 20px;
   }
   .search-box {
     border: 1px solid #b6c5ff;
@@ -56,8 +56,82 @@
     margin-left: 10px;
     color: white;
   }
+  .searchBtn {
+    background-color: transparent;
+    border: 0;
+  }
+  .filter-heading {
+    color: white;
+    font-weight: 500;
+    font-size: 16px;
+  }
+  .employment-type {
+    outline: none;
+    height: 14px;
+    width: 14px;
+    margin: 5px;
+  }
+  .emp-label {
+    font-size: 16px;
+  }
+  .salary {
+    outline: none;
+    height: 14px;
+    width: 14px;
+    margin: 5px;
+  }
+  .salary-label {
+    font-size: 16px;
+  }
+  .no-jobs-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
+    flex-direction: column;
+  }
+  .no-jobs {
+    height: 160px;
+  }
+  .no-jobs-heading {
+    margin-bottom: 0;
+    font-size: 18px;
+    color: white;
+  }
+  .no-jobs-des {
+    color: #f1f5f9;
+    font-size: 14px;
+  }
+  .container-failure {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: 400px;
+    margin-top: 20px;
+  }
+  .failure-image-data {
+    height: 250px;
+  }
+  .failure-heading {
+    color: white;
+    margin-bottom: 0px;
+    font-size: 18px;
+  }
+  .failure-description {
+    color: white;
+    font-size: 12px;
+    text-align: center;
+  }
 }
 @media screen and (min-width: 552px) {
+  .jobs-container {
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    overflow: scroll-y;
+    min-height: 900px;
+  }
   .container-data {
     width: 90%;
     margin-top: 30px;
@@ -86,6 +160,8 @@
   .search-container {
     display: flex;
     align-items: center;
+    height: 35px;
+    border-radius: 8px;
   }
   .search-container-mobile {
     display: none;
@@ -103,7 +179,67 @@
     font-size: 16px;
   }
   .search-icon {
-    margin-left: 10px;
+    margin-left: 5px;
+    color: white;
+  }
+  .searchBtn {
+    background-color: transparent;
+    border: 0;
+  }
+  .filter-heading {
+    color: white;
+    font-weight: 600;
+    font-size: 20px;
+  }
+  .employment-type {
+    outline: none;
+    height: 16px;
+    width: 16px;
+    margin: 10px;
+  }
+  .emp-label {
+    font-size: 18px;
+  }
+  .salary {
+    outline: none;
+    height: 16px;
+    width: 16px;
+    margin: 10px;
+  }
+  .salary-label {
+    font-size: 18px;
+  }
+  .no-jobs-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 600px;
+  }
+  .no-jobs {
+    height: 300px;
+  }
+  .no-jobs-heading {
+    margin-bottom: 0;
+    font-size: 20px;
+    color: white;
+  }
+  .no-jobs-des {
+    color: #f1f5f9;
+    font-size: 16px;
+  }
+  .container-failure {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+  .failure-heading {
+    color: white;
+    margin-bottom: 0px;
+  }
+  .failure-description {
     color: white;
   }
 }
@@ -112,14 +248,7 @@
   margin: 10px 0;
   height: 400px;
 }
-.failure-heading {
-  color: white;
-  width: 100%;
-  margin-bottom: 0px;
-}
-.failure-description {
-  color: white;
-}
+
 .retry-right-sec {
   color: white;
   font-weight: 600;
@@ -129,11 +258,7 @@
   padding: 5px 15px;
   border-radius: 8px;
 }
-.container-failure {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+
 .products-loader-container {
   display: flex;
   justify-content: center;
@@ -163,6 +288,13 @@
   border-radius: 25px;
   margin-bottom: 30px;
 }
+.retry-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+  width: 100px;
+}
 .profile-name {
   color: #6366f1;
   font-size: 28px;
@@ -172,10 +304,7 @@
 .left-section-data {
   width: 90%;
 }
-.filter-heading {
-  color: white;
-  font-weight: 600;
-}
+
 .unordered-list {
   padding: 0;
 }

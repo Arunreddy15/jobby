@@ -10,17 +10,22 @@ const Header = props => {
   const onLogout = () => {
     Cookies.remove('jwt_token')
     const {history} = props
+
     history.replace('/login')
   }
 
   return (
     <div className="nav-container">
       <div className="header-container">
-        <img
-          src="https://assets.ccbp.in/frontend/react-js/logo-img.png"
-          alt="website logo"
-          className="logo"
-        />
+        <Link to="/">
+          <button type="button" className="logo-btn">
+            <img
+              src="https://assets.ccbp.in/frontend/react-js/logo-img.png"
+              alt="website logo"
+              className="logo"
+            />
+          </button>
+        </Link>
         <ul className="route-links-nonMobile">
           <Link to="/" className="nav-link">
             <li>Home</li>
