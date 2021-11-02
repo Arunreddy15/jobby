@@ -68,12 +68,7 @@ class Jobs extends Component {
     profileData: {},
     salaryRange: 0,
     searchInput: '',
-    employmentType: [
-      {isChecked: false, type: 'FULLTIME'},
-      {isChecked: false, type: 'PARTTIME'},
-      {isChecked: false, type: 'INTERNSHIP'},
-      {isChecked: false, type: 'FREELANCE'},
-    ],
+    employmentType: [],
   }
 
   componentDidMount() {
@@ -100,16 +95,13 @@ class Jobs extends Component {
     this.setState({salaryRange: salaryRangeId}, this.getJobs)
   }
 
-  onChangeType = employmentTypeId => {
-    const {employmentType} = this.state
-    const filter = employmentType.map(each => each.isChecked === false)
-    console.log(filter)
-    if (filter) {
-      this.setState(prevState => ({isChecked: !prevState.isChecked}))
-    }
-
-    console.log(filter)
-    this.setState({employmentType: employmentTypeId})
+  onChangeType = type => {
+    this.setState(
+      prevState => ({
+        employmentType: [...prevState.employmentType, type],
+      }),
+      this.getJobs,
+    )
   }
 
   getProfileData = async () => {
@@ -141,7 +133,7 @@ class Jobs extends Component {
   }
 
   getJobs = async () => {
-    const {salaryRange, searchInput} = this.state
+    const {salaryRange, searchInput, employmentType} = this.state
     this.setState({apiStatus: apiConstants.inProgress})
     const options = {
       headers: {
@@ -151,7 +143,7 @@ class Jobs extends Component {
     }
 
     const response = await fetch(
-      `https://apis.ccbp.in/jobs?employment_type=FULLTIME&search=${searchInput}&minimum_package=${salaryRange}`,
+      `https://apis.ccbp.in/jobs?employment_type=${employmentType}&search=${searchInput}&minimum_package=${salaryRange}`,
       options,
     )
     const fetchedData = await response.json()
@@ -181,6 +173,12 @@ class Jobs extends Component {
     this.getJobs()
   }
 
+  onEnterSearch = event => {
+    if (event.key === 'Enter') {
+      this.getJobs()
+    }
+  }
+
   renderJobsBodyContent = () => {
     const {searchInput} = this.state
 
@@ -196,6 +194,7 @@ class Jobs extends Component {
                   className="search-box"
                   placeholder="Search"
                   onChange={this.onChangeInput}
+                  onKeyDown={this.onEnterSearch}
                 />
                 <button
                   type="button"
@@ -211,7 +210,7 @@ class Jobs extends Component {
               </div>
               <FiltersGroup
                 employmentTypesList={employmentTypesList}
-                // onChangeType={this.onChangeType}
+                onChangeType={this.onChangeType}
                 salaryRangesList={salaryRangesList}
                 onChangeSalaryRange={this.onChangeSalaryRange}
               />

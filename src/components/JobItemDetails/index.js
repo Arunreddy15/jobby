@@ -187,14 +187,14 @@ class JobItemDetails extends Component {
             <div className="desc-heading-visit-link-box">
               <h1 className="heading">Description</h1>
               <div className="visit-link-site">
-                <a href={companyWebsiteUrl}>Visit </a>
+                <a href={companyWebsiteUrl}>Visit</a>
                 <GoLinkExternal size={18} className="visit-icon" />
               </div>
             </div>
             <p className="description-job">{jobDescription}</p>
           </div>
           <div>
-            <p className="skills-heading">Skills</p>
+            <h1 className="skills-heading">Skills</h1>
             <ul className="skills-container">
               {skills.map(each => (
                 <li className="skill-item" key={each.id}>
